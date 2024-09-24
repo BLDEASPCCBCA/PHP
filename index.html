@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't use</title>
+    <style>
+        
+        .code{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>
+            
+                <code class="code">
+                    &lt;?php
+function isprime($num){
+    if($num &lt;= 1){
+        return false;
+    }
+    for($i=2; $i &lt;= sqrt($num); $i++){
+        if($num % $i == 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+echo "The prime number between 10 and 50 are: ";
+$a = 0;
+for ($num=10; $num &lt;= 50; $num++){
+    if(isprime($num)){
+        echo $num."&lt;br&gt;";
+        $a++;
+    }
+}
+echo "&lt;br&gt; Total prime number between 10 and 50 are = $a";
+?&gt;
+
+                </code>
+            
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+                 &lt;?php
+                function check($num){
+                    if($num % 2 == 0){
+                        echo "$num is an even number";
+                    } else {
+                        echo "$num is an odd number";
+                    }
+                }
+                
+                $num = 50;
+                check($num);
+                ?&gt;
+                
+  
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+                &lt;html&gt;
+                &lt;head&gt;
+                    &lt;title&gt;Message Sender&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;h2&gt;Message Sender&lt;/h2&gt;
+                    &lt;form action="receive.php" methog="get"&gt;
+                        Enter a message 
+                        &lt;input type="text" id="message" name="message"&gt;&lt;br&gt;
+                        &lt;button type="submit"&gt;Send MSG&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+             rerceiver
+             &lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Receiver&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Message Receiver&lt;/h2&gt;
+    &lt;?php
+    if(isset($_GET['message'])) {
+        $message = $_GET['message'];
+        echo "Received message: - $message";
+    } else {
+        echo "No message received.";
+    }
+    ?&gt;
+    &lt;br&gt;
+    &lt;a href="send.php"&gt;Go back to sender&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                
+
+</code>
+<button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+                
+                &lt;?php
+if (isset($_POST['submit'])) {
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    $operator = $_POST['operator'];
+    $operations = [
+        'add' => $num1 + $num2,
+        'subtract' => $num1 - $num2,
+        'multiply' => $num1 * $num2,
+        'divide' => $num1 / $num2
+    ];
+    $result = $operations[$operator];
+}
+?&gt;
+&lt;form action="calc.php" method="post"&gt;
+    &lt;input type="text" name="num1"&gt;
+    &lt;select name="operator"&gt;
+        &lt;option value="add"&gt;+&lt;/option&gt;
+        &lt;option value="subtract"&gt;-&lt;/option&gt;
+        &lt;option value="multiply"&gt;*&lt;/option&gt;
+        &lt;option value="divide"&gt;/&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type="text" name="num2"&gt;
+    &lt;input type="submit" name="submit" value="Calculate"&gt;
+&lt;/form&gt;
+&lt;?php
+if (isset($result)) {
+    echo "Result: $result";
+}
+?&gt;
+
+                
+                                
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+
+        
+        
+        <li>
+            <code class="code">
+               
+                &lt;?php
+$text = "Hello, World! PHP is awesome."; 
+$length = strlen($text); 
+echo "The length of the string is: $length&lt;br&gt;&lt;br&gt;"; 
+
+$replacedText = str_replace("World", "PHP Developer", $text); 
+echo "Replaced Text: $replacedText&lt;br&gt;&lt;br&gt;"; 
+
+$upperText = strtoupper($text); 
+echo "Uppercase Text: $upperText&lt;br&gt;&lt;br&gt;"; 
+
+$lowerText = strtolower($text); 
+echo "Lowercase Text: $lowerText&lt;br&gt;&lt;br&gt;"; 
+
+$substring = substr($text, 7, 4); 
+echo "Substring (7, 5): $substring&lt;br&gt;&lt;br&gt;"; 
+
+$position = strpos($text, "PHP"); 
+echo "Position of 'PHP' in the string: $position&lt;br&gt;&lt;br&gt;"; 
+
+$reversedText = strrev($text); 
+echo "Reversed Text: $reversedText&lt;br&gt;&lt;br&gt;"; 
+
+$ucfirstText = ucfirst($lowerText); 
+echo "Ucfirst Text: $ucfirstText&lt;br&gt;&lt;br&gt;"; 
+
+$lcfirstText = lcfirst($upperText); 
+echo "Lcfirst Text: $lcfirstText&lt;br&gt;&lt;br&gt;";
+?&gt;
+
+               
+              
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+                
+                &lt;?php
+                $currentHour = date("H");
+                $message = ($currentHour &gt;= 5 && $currentHour &lt; 12) ? "Good morning!" : 
+                    (($currentHour &gt;= 12 && $currentHour &lt; 17) ? "Good afternoon!" : 
+                    (($currentHour &gt;= 17 && $currentHour &lt; 21) ? "Good evening!" : "Good night!"));
+                echo $message;
+                ?&gt;
+                
+                                
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+              
+                &lt;?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $name = $_POST['name']; 
+    $gender = $_POST['gender']; 
+    $interests = $_POST['interests']; 
+    $country = $_POST['country']; 
+} 
+?&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Form Demo&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Form Demo&lt;/h2&gt;
+&lt;form method="post"&gt;
+    Name: 
+    &lt;input type="text" name="name" required&gt;&lt;br&gt;&lt;br&gt;
+    Gender: 
+    &lt;input type="radio" name="gender" value="male" required&gt; Male 
+    &lt;input type="radio" name="gender" value="female" required&gt; Female&lt;br&gt;&lt;br&gt;
+    Interests: 
+    &lt;input type="checkbox" name="interests" value="coding"&gt; Coding 
+    &lt;input type="checkbox" name="interests" value="music"&gt; Music 
+    &lt;input type="checkbox" name="interests" value="sports"&gt; Sports&lt;br&gt;&lt;br&gt;
+    Country: 
+    &lt;select name="country" required&gt;
+        &lt;option value="india"&gt;India&lt;/option&gt;
+        &lt;option value="canada"&gt;Canada&lt;/option&gt;
+        &lt;option value="uk"&gt;UK&lt;/option&gt;
+        &lt;option value="australia"&gt;Australia&lt;/option&gt;
+    &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+&lt;?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    echo "&lt;h2&gt;Your Input:&lt;/h2&gt;"; 
+    echo "Name: $name&lt;br&gt;"; 
+    echo "Gender: $gender&lt;br&gt;"; 
+    echo "Interests: $interests&lt;br&gt;";
+    echo "Country: $country&lt;br&gt;"; 
+} 
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+              
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        
+        <li>
+            <code class="code">
+
+
+                &lt;?php
+$valid_username = "aspbca"; 
+$valid_password = "bca2000"; 
+$error_message = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $username = $_POST['username']; 
+    $password = $_POST['password']; 
+    if ($username === $valid_username && $password === $valid_password) { 
+        header("Location: welcome.php"); 
+        exit(); 
+    } 
+    else { 
+        $error_message = "Invalid username or password."; 
+    } 
+}
+?&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Login&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Login&lt;/h2&gt;
+&lt;form method="post"&gt;
+    Username: &lt;input type="text" name="username" required&gt;&lt;br&gt;&lt;br&gt;
+    Password: &lt;input type="password" name="password" required&gt;&lt;br&gt;&lt;br&gt;
+    &lt;input type="submit" value="Login"&gt;
+&lt;/form&gt;
+&lt;?php
+if ($error_message) { 
+    echo "&lt;p&gt;$error_message&lt;/p&gt;"; 
+} 
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+              
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+
+                &lt;html&gt;
+                &lt;head&gt;&lt;title&gt;Insert Records&lt;/title&gt;&lt;/head&gt;
+                &lt;body&gt;
+                &lt;h2&gt;Insert Records&lt;/h2&gt;
+                &lt;form method="post"&gt;
+                    Name: &lt;input type="text" name="name"&gt;&lt;br&gt;&lt;br&gt;
+                    Age: &lt;input type="text" name="age"&gt;&lt;br&gt;&lt;br&gt;
+                    Email: &lt;input type="text" name="email"&gt;&lt;br&gt;&lt;br&gt;
+                    &lt;input type="submit" name="submit" value="Add"&gt;
+                &lt;/form&gt;
+                &lt;?php
+                $mysqli = mysqli_connect('localhost', 'root', '', 'test'); 
+                if (isset($_POST['submit'])) {
+                    $name = $_POST['name'];
+                    $age = $_POST['age'];
+                    $email = $_POST['email'];
+                    if (!$name || !$age || !$email) {
+                        if (!$name) echo "&lt;p style='color:red;'&gt;Name is empty&lt;/p&gt;";
+                        if (!$age) echo "&lt;p style='color:red;'&gt;Age is empty&lt;/p&gt;";
+                        if (!$email) echo "&lt;p style='color:red;'&gt;Email is empty&lt;/p&gt;";
+                    } else {
+                        mysqli_query($mysqli, "INSERT INTO users (name, age, email) VALUES ('$name', '$age', '$email')");
+                        echo "&lt;p style='color:green;'&gt;Data added successfully&lt;/p&gt;";
+                    }
+                }
+                ?&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                
+
+
+               
+             
+              
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+                &lt;?php
+                $mysqli = mysqli_connect('localhost', 'root', '', 'test'); 
+                $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); 
+                ?&gt;
+                &lt;html&gt;
+                &lt;head&gt;&lt;title&gt;Display Records&lt;/title&gt;&lt;/head&gt;
+                &lt;body&gt;
+                &lt;h2&gt;Display Records&lt;/h2&gt;
+                &lt;table width='50%' border=1 align=center&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Name&lt;/th&gt;
+                    &lt;th&gt;Age&lt;/th&gt;
+                    &lt;th&gt;Email&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;?php
+                while ($res = mysqli_fetch_assoc($result)) 
+                { 
+                    echo "&lt;tr&gt;"; 
+                    echo "&lt;td&gt;".$res['name']."&lt;/td&gt;"; 
+                    echo "&lt;td&gt;".$res['age']."&lt;/td&gt;"; 
+                    echo "&lt;td&gt;".$res['email']."&lt;/td&gt;"; 
+                } 
+                ?&gt;
+                &lt;/table&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                
+              
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+                &lt;?php
+$conn = new mysqli('localhost', 'root', '', 'test'); 
+if ($conn->connect_error) die("Connection failed: " . $conn->connect_error); 
+$result = $conn->query("SELECT id FROM users"); 
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $id = $_POST['id'];
+    if (isset($_POST['edit'])) { 
+        $row = $conn->query("SELECT * FROM users WHERE id = '$id'")->fetch_assoc();
+        $name = $row['name']; 
+        $age = $row['age']; 
+        $email = $row['email'];
+    } 
+    if (isset($_POST['update'])) { 
+        $name = $_POST['name']; 
+        $age = $_POST['age']; 
+        $email = $_POST['email'];
+        if ($conn->query("UPDATE users SET name='$name', age='$age', email='$email' WHERE id='$id'"))
+            echo "Record updated successfully";
+        else 
+            echo "Error updating record: " . $conn->error;
+    }
+}
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Edit Records&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;form method="POST"&gt;
+    &lt;label&gt;Select ID to edit:&lt;/label&gt;
+    &lt;select name="id"&gt;
+    &lt;?php while($row = $result->fetch_assoc()) 
+        echo "&lt;option value='{$row['id']}'&gt;{$row['id']}&lt;/option&gt;"; ?&gt;
+    &lt;/select&gt;
+    &lt;input type="submit" name="edit" value="Edit"&gt;
+&lt;/form&gt;
+&lt;?php if (isset($id)): ?&gt;
+&lt;form method="POST"&gt;
+    &lt;input type="hidden" name="id" value="&lt;?= $id ?&gt;"&gt;
+    &lt;input type="text" name="name" value="&lt;?= $name ?&gt;" placeholder="Name"&gt;
+    &lt;input type="text" name="age" value="&lt;?= $age ?&gt;" placeholder="Age"&gt;
+    &lt;input type="text" name="email" value="&lt;?= $email ?&gt;" placeholder="Email"&gt;
+    &lt;input type="submit" name="update" value="Update"&gt;
+&lt;/form&gt;
+&lt;?php endif; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;?php $conn->close(); ?&gt;
+
+                &lt;/table&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                
+              
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+        <li>
+            <code class="code">
+                &lt;?php
+$mysqli = new mysqli('localhost', 'root', '', 'test');
+if ($mysqli->connect_error) die("Connection failed: " . $mysqli->connect_error); 
+$result = $mysqli->query("SELECT id FROM users"); 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) { 
+    $stmt = $mysqli->prepare("DELETE FROM users WHERE id = ?");
+    $stmt->bind_param("i", $_POST['id']);
+    echo $stmt->execute() ? "Record deleted successfully" : "Error: " . $stmt->error;
+    $stmt->close();
+}
+$mysqli->close(); 
+?&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Delete Records&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;form method="POST"&gt;
+    &lt;label&gt;Select ID to delete:&lt;/label&gt;
+    &lt;select name="id"&gt;
+    &lt;?php while ($row = $result->fetch_assoc()) 
+        echo "&lt;option value='{$row['id']}'&gt;{$row['id']}&lt;/option&gt;"; 
+    ?&gt;
+    &lt;/select&gt;
+    &lt;input type="submit" value="Delete"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+              
+            </code>
+            <button class="btn">cpoy</button>
+        </li>
+    </ol>
+    <script src="script.js"></script>
+</body>
+</html>
